@@ -106,7 +106,6 @@ h1 {
 # YOUR DASHBOARD CODE BELOW
 # ============================================================
 
-st.success("Creditor Ageing Dashboard Loaded Successfully")
 # ============================================================
 # PREMIUM CSS + BRANDING
 # ============================================================
