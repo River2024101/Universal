@@ -27,19 +27,23 @@ from openpyxl.utils import get_column_letter
 
 getcontext().prec = 60
 
+import streamlit as st
+
 # ============================================================
 # PAGE CONFIG
 # ============================================================
+
 st.set_page_config(
     page_title="Creditor Ageing | INALSA",
-    page_icon="IN",
+    page_icon="🇮🇳",   # Indian Flag instead of 🏠
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
 # ============================================================
 # PREMIUM CSS + BRANDING
 # ============================================================
-
+)
 st.markdown("""
 <style>
 
