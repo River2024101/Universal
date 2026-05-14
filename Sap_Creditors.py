@@ -36,64 +36,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-import streamlit as st
-from PIL import Image
 
-# ============================================================
-# PAGE CONFIG
-# ============================================================
-
-st.set_page_config(
-    page_title="Creditor Ageing | INALSA",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-
-# ============================================================
-# LOAD FLAG IMAGE
-# ============================================================
-
-flag = Image.open("indian_flag.png")
-
-# ============================================================
-# HEADER WITH FLAG
-# ============================================================
-
-col1, col2 = st.columns([1, 12])
-
-with col1:
-    st.image(flag, width=60)
-
-with col2:
-    st.markdown(
-        """
-        <h1 style='margin-top:10px; color:#0E2A5A;'>
-        Creditor Ageing | INALSA
-        </h1>
-        """,
-        unsafe_allow_html=True
-    )
-
-# ============================================================
-# PREMIUM CSS + BRANDING
-# ============================================================
-
-st.markdown("""
-<style>
-.main {
-    background-color: #f5f7fa;
-}
-
-h1 {
-    font-family: Arial;
-    font-weight: 700;
-}
-
-[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #FF9933 0%, white 50%, #138808 100%);
-}
-</style>
-""", unsafe_allow_html=True)
 # ============================================================
 # PREMIUM CSS + BRANDING
 # ============================================================
