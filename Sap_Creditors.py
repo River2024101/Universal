@@ -36,7 +36,77 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+import streamlit as st
 
+# ============================================================
+# PAGE CONFIG
+# ============================================================
+
+st.set_page_config(
+    page_title="Creditor Ageing | INALSA",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+# ============================================================
+# HEADER WITH INDIAN FLAG
+# ============================================================
+
+col1, col2 = st.columns([1, 12])
+
+with col1:
+    st.image(
+        "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
+        width=60
+    )
+
+with col2:
+    st.markdown(
+        """
+        <h1 style='margin-top:10px; color:#0E2A5A;'>
+        Creditor Ageing | INALSA
+        </h1>
+        """,
+        unsafe_allow_html=True
+    )
+
+# ============================================================
+# PREMIUM CSS + BRANDING
+# ============================================================
+
+st.markdown("""
+<style>
+
+/* Main Background */
+.main {
+    background-color: #F5F7FA;
+}
+
+/* Sidebar Styling */
+[data-testid="stSidebar"] {
+    background: linear-gradient(
+        180deg,
+        #FF9933 0%,
+        #FFFFFF 50%,
+        #138808 100%
+    );
+}
+
+/* Title Styling */
+h1 {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    color: #0E2A5A;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ============================================================
+# YOUR DASHBOARD CODE BELOW
+# ============================================================
+
+st.success("Creditor Ageing Dashboard Loaded Successfully")
 # ============================================================
 # PREMIUM CSS + BRANDING
 # ============================================================
