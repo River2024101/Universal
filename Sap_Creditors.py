@@ -36,33 +36,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-import streamlit as st
-
-# ============================================================
-# PAGE CONFIG
-# ============================================================
-# ============================================================
-# HEADER WITH INDIAN FLAG
-# ============================================================
-
-col1, col2 = st.columns([1, 12])
-
-with col1:
-    st.image(
-        "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
-        width=60
-    )
-
-with col2:
-    st.markdown(
-        """
-        <h1 style='margin-top:10px; color:#0E2A5A;'>
-        Creditor Ageing | INALSA
-        </h1>
-        """,
-        unsafe_allow_html=True
-    )
-
 # ============================================================
 # PREMIUM CSS + BRANDING
 # ============================================================
