@@ -30,14 +30,12 @@ import streamlit as st
 # ============================================================
 # PAGE CONFIG
 # ============================================================
-
 st.set_page_config(
     page_title="Creditor Ageing | INALSA",
-    page_icon="🇮🇳",   # Indian Flag instead of 🏠
+    page_icon="🪷",   # Lotus (works better sometimes)
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
 # ============================================================
 # PREMIUM CSS + BRANDING
 # ============================================================
