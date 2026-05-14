@@ -1,6 +1,6 @@
 streamlit
 pandas
-numpy
-openpyxl
 plotly
-xlrd
+openpyxl
+xlsxwriter
+numpy
