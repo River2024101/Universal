@@ -36,8 +36,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
-img = Image.open("logo.png")  # if logo.png is at root of repo
 # OR
 img = Image.open("assets/logo.png")  # if it's inside an assets folder
 st.set_page_config(
