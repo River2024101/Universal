@@ -836,10 +836,9 @@ with st.sidebar:
 if not os_file or not master_file:
     c1, c2 = st.columns([1.25, 1])
     with c1:
-           st.markdown("""
+         st.markdown("""
 <div class="section-card">
-   st.markdown("""
-<div class="section-card">
+
     <h3>&#128640; &#127470;&#127475; INALSA Creditor Ageing Web Application</h3>
 
     <div style="
@@ -869,10 +868,12 @@ if not os_file or not master_file:
         <li><b>Supplier Master Excel</b> containing Supplier, Name, Supplier Type, Group and View - Y/N</li>
         <li><b>Upload File</b> for next process</li>
     </ol>
+
 </div>
 """, unsafe_allow_html=True)
-    with c2:
-        st.markdown(
+
+with c2:
+    st.markdown(
             """
             <div class="section-card">
                 <h3>📌 Professional Output</h3>
