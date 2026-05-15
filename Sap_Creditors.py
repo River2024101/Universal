@@ -36,6 +36,15 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+from PIL import Image
+img = Image.open("logo.png")  # your company logo
+
+st.set_page_config(
+    page_title="Creditor Ageing | INALSA",
+    page_icon=img,
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 # ============================================================
 # PREMIUM CSS + BRANDING
 # ============================================================
