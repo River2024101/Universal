@@ -836,39 +836,21 @@ with st.sidebar:
 if not os_file or not master_file:
     c1, c2 = st.columns([1.25, 1])
     with c1:
-         st.markdown("""
 <div class="section-card">
 
     <h3>&#128640; &#127470;&#127475; INALSA Creditor Ageing Web Application</h3>
 
-    <div style=
-        display:flex;
-        align-items:center;
-        gap:10px;
-        background:#f5f5f5;
-        padding:10px;
-        border-radius:10px;
-        margin:10px 0;
-    ">
-        <div style="font-size:30px;">&#129489;&#8205;&#128188;</div>
-        <div>
-            <b>Hello!</b><br>
-            Please upload the files for the next step.
-        </div>
+   st.markdown("""
+<div style="
+    display:flex;
+    align-items:center;
+    gap:10px;
+">
+    <span style="font-size:40px;">🇮🇳</span>
+    <div>
+        <h3>INALSA Creditor Ageing Web Application</h3>
+        <p>Upload your SAP outstanding file and supplier master to process creditor ageing.</p>
     </div>
-
-    <p>
-        Upload your SAP outstanding file and supplier master to create a clean ageing dashboard with supplier, supplier type, group, operative status and amount-wise analysis.
-    </p>
-
-    <p><b>Required files:</b></p>
-
-    <ol>
-        <li><b>SAP OS Excel</b> extracted from SAP</li>
-        <li><b>Supplier Master Excel</b> containing Supplier, Name, Supplier Type, Group and View - Y/N</li>
-        <li><b>Upload File</b> for next process</li>
-    </ol>
-
 </div>
 """, unsafe_allow_html=True)
 
