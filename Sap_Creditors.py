@@ -742,8 +742,6 @@ def create_excel_download(final_df, supplier_report, group_report, status_report
             style_excel_sheet(ws)
     output.seek(0)
     return output.getvalue()
-
-
 def metric_card(label, value, note=""):
     st.markdown(
         f"""
@@ -764,47 +762,20 @@ if "ageing_process_started" not in st.session_state:
 
 with st.sidebar:
     st.markdown("## 📤 Upload Files")
-
-    st.markdown("""
-    <div style="
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background-color: #f5f5f5;
-        padding: 8px 12px;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        font-size: 14px;
-    ">
-        <div style="font-size: 28px;">🧑‍💼</div>
-        <div><b>Hi!</b> Upload file for next step.</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown(
-        "Upload the SAP OS file and Supplier Master file, then click Start to generate the dashboard."
-    )
+    st.markdown("Upload the SAP OS file and Supplier Master file, then click Start to generate the dashboard.")
 
     os_file = st.file_uploader(
         "1) Upload SAP OS Excel",
         type=["xlsx", "xls"],
         help="SAP outstanding file extracted from SAP",
     )
-
     master_file = st.file_uploader(
         "2) Upload Supplier Master Excel",
         type=["xlsx"],
         help="Master file with Supplier, Name, Supplier Type, Group and View - Y/N",
     )
 
-    third_file = st.file_uploader(
-        "3) Upload File",
-        type=["xlsx", "xls", "csv"],
-        help="Upload file",
-    )
-
     st.markdown("---")
-""", unsafe_allow_html=True)
     use_positive_amount = st.toggle("Show payable as positive amount", value=True)
     st.caption("For creditors, SAP values may be negative. Dashboard uses payable amount as positive by default.")
 
@@ -1000,3 +971,5 @@ try:
 except Exception as e:
     st.error("Processing failed. Please check the uploaded files and format.")
     st.exception(e)
+
+
