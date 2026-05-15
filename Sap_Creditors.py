@@ -30,6 +30,12 @@ import streamlit as st
 # ============================================================
 # PAGE CONFIG
 # ============================================================
+from PIL import Image
+import os
+
+img = Image.open("logo.png")  # if logo.png is at root of repo
+# OR
+img = Image.open("assets/logo.png")  # if it's inside an assets folder
 st.set_page_config(
     page_title="Creditor Ageing | INALSA",
     page_icon="☸️",   # Just text, always works
