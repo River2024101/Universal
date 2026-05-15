@@ -30,8 +30,12 @@ import streamlit as st
 # ============================================================
 # PAGE CONFIG
 # ============================================================
-from PIL import Image
-import os
+st.set_page_config(
+    page_title="Creditor Ageing | INALSA",
+    page_icon="💼",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 img = Image.open("logo.png")  # if logo.png is at root of repo
 # OR
