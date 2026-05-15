@@ -79,10 +79,7 @@ INALSA_LOGO_B64 = """iVBORw0KGgoAAAANSUhEUgAAAlgAAAEsCAYAAAAfPc2WAAAAGXRFWHRTb2Z
 COMPANY_NAME = "Tuareg Marketing Private Limited"
 BRAND_NAME = "🇮🇳 INALSA HOME APPLIANCES"
 COMPANY_WEBSITE = "https://www.inalsaappliances.com"
-st.markdown(
-    "<h2>🇮🇳 INALSA HOME APPLIANCES</h2>",
-    unsafe_allow_html=True
-)
+
 st.markdown(
     """
     <style>
