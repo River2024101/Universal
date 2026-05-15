@@ -841,7 +841,7 @@ if not os_file or not master_file:
 
     <h3>&#128640; &#127470;&#127475; INALSA Creditor Ageing Web Application</h3>
 
-    <div style="
+    <div style='
         display:flex;
         align-items:center;
         gap:10px;
