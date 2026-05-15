@@ -837,19 +837,23 @@ if not os_file or not master_file:
     c1, c2 = st.columns([1.25, 1])
     with c1:
 <div class="section-card">
-
     <h3>&#128640; &#127470;&#127475; INALSA Creditor Ageing Web Application</h3>
+  st.markdown("""
+<div class="section-card">
+    <div style="
+        display:flex;
+        align-items:center;
+        gap:10px;
+    ">
+        <span style="font-size:40px;">🇮🇳</span>
 
-   st.markdown("""
-<div style="
-    display:flex;
-    align-items:center;
-    gap:10px;
-">
-    <span style="font-size:40px;">🇮🇳</span>
-    <div>
-        <h3>INALSA Creditor Ageing Web Application</h3>
-        <p>Upload your SAP outstanding file and supplier master to process creditor ageing.</p>
+        <div>
+            <h3>INALSA Creditor Ageing Web Application</h3>
+            <p>
+                Upload your SAP outstanding file and supplier master
+                to process creditor ageing.
+            </p>
+        </div>
     </div>
 </div>
 """, unsafe_allow_html=True)
