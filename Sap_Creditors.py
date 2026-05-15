@@ -785,6 +785,21 @@ with st.sidebar:
     )
 
     st.markdown("---")
+   st.markdown("""
+<div style="
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+">
+    <div style="font-size: 28px;">🧑‍💼</div>
+    <div><b>Hi!</b> Upload file for next step.</div>
+</div>
+""", unsafe_allow_html=True)
     use_positive_amount = st.toggle("Show payable as positive amount", value=True)
     st.caption("For creditors, SAP values may be negative. Dashboard uses payable amount as positive by default.")
 
