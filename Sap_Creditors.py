@@ -781,6 +781,7 @@ third_file = st.file_uploader(
     type=["xlsx", "xls", "csv"],
     help="Upload file",
 )
+  st.markdown("---")
     use_positive_amount = st.toggle("Show payable as positive amount", value=True)
     st.caption("For creditors, SAP values may be negative. Dashboard uses payable amount as positive by default.")
 
