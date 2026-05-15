@@ -32,14 +32,6 @@ import streamlit as st
 # ============================================================
 st.set_page_config(
     page_title="Creditor Ageing | INALSA",
-    page_icon="💼",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-# OR
-img = Image.open("assets/logo.png")  # if it's inside an assets folder
-st.set_page_config(
-    page_title="Creditor Ageing | INALSA",
     page_icon="☸️",   # Just text, always works
     layout="wide",
     initial_sidebar_state="expanded",
