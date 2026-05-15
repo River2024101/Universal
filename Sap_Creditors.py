@@ -32,7 +32,7 @@ import streamlit as st
 # ============================================================
 st.set_page_config(
     page_title="Creditor Ageing | INALSA",
-    page_icon="🪷",   # Lotus (works better sometimes)
+    page_icon="☸️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
