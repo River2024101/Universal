@@ -776,7 +776,7 @@ with st.sidebar:
         type=["xlsx"],
         help="Master file with Supplier, Name, Supplier Type, Group and View - Y/N",
     )
-third_file = st.file_uploader(
+    third_file = st.file_uploader(
     "3) Upload File",
     type=["xlsx", "xls", "csv"],
     help="Upload file",
