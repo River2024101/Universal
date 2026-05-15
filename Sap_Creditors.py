@@ -771,17 +771,20 @@ with st.sidebar:
         type=["xlsx", "xls"],
         help="SAP outstanding file extracted from SAP",
     )
+
     master_file = st.file_uploader(
         "2) Upload Supplier Master Excel",
         type=["xlsx"],
         help="Master file with Supplier, Name, Supplier Type, Group and View - Y/N",
     )
+
     third_file = st.file_uploader(
-    "3) Upload File",
-    type=["xlsx", "xls", "csv"],
-    help="Upload file",
-)
-  st.markdown("---")
+        "3) Upload File",
+        type=["xlsx", "xls", "csv"],
+        help="Upload file",
+    )
+
+    st.markdown("---")
     use_positive_amount = st.toggle("Show payable as positive amount", value=True)
     st.caption("For creditors, SAP values may be negative. Dashboard uses payable amount as positive by default.")
 
