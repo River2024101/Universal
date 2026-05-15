@@ -838,7 +838,9 @@ if not os_file or not master_file:
     with c1:
            st.markdown("""
 <div class="section-card">
-    <h3>🚀 🇮🇳 INALSA Creditor Ageing Web Application</h3>
+   st.markdown("""
+<div class="section-card">
+    <h3>&#128640; &#127470;&#127475; INALSA Creditor Ageing Web Application</h3>
 
     <div style="
         display:flex;
@@ -849,7 +851,7 @@ if not os_file or not master_file:
         border-radius:10px;
         margin:10px 0;
     ">
-        <div style="font-size:30px;">🧑‍💼</div>
+        <div style="font-size:30px;">&#129489;&#8205;&#128188;</div>
         <div>
             <b>Hello!</b><br>
             Please upload the files for the next step.
@@ -869,13 +871,6 @@ if not os_file or not master_file:
     </ol>
 </div>
 """, unsafe_allow_html=True)
-                    <li><b>SAP OS Excel</b> extracted from SAP</li>
-                    <li><b>Supplier Master Excel</b> containing Supplier, Name, Supplier Type, Group and View - Y/N</li>
-                </ol>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
     with c2:
         st.markdown(
             """
