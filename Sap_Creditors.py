@@ -775,7 +775,37 @@ with st.sidebar:
         type=["xlsx"],
         help="Master file with Supplier, Name, Supplier Type, Group and View - Y/N",
     )
+import streamlit as st
 
+# ---------- MINI HUMAN ASSISTANT ----------
+st.markdown("""
+<style>
+.assistant-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.assistant-btn button {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    font-size: 35px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Mini Human Button
+st.markdown('<div class="assistant-container">', unsafe_allow_html=True)
+
+if st.button("🧑", key="mini_human"):
+    st.toast("📂 Upload your file")
+
+st.markdown('</div>', unsafe_allow_html=True)
     third_file = st.file_uploader(
         "3) Upload File",
         type=["xlsx", "xls", "csv"],
