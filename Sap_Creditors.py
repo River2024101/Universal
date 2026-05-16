@@ -977,35 +977,19 @@ try:
 except Exception as e:
     st.error("Processing failed. Please check the uploaded files and format.")
     st.exception(e)
+# ==========================================
+# MINI HUMAN ASSISTANT
+# ==========================================
+
 import streamlit as st
 
-# ---------- MINI HUMAN ASSISTANT ----------
-st.markdown("""
-<style>
-.assistant-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-}
+if "show_message" not in st.session_state:
+    st.session_state.show_message = False
 
-.assistant-btn button {
-    border-radius: 50%;
-    height: 70px;
-    width: 70px;
-    font-size: 35px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
-}
-</style>
-""", unsafe_allow_html=True)
-
-# Mini Human Button
-st.markdown('<div class="assistant-container">', unsafe_allow_html=True)
-
+# Mini human button
 if st.button("🧑", key="mini_human"):
-    st.toast("📂 Upload your file")
+    st.session_state.show_message = True
 
-st.markdown('</div>', unsafe_allow_html=True)
-
+# Popup message
+if st.session_state.show_message:
+    st.info("📂 Upload your file")
