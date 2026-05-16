@@ -977,61 +977,66 @@ try:
 except Exception as e:
     st.error("Processing failed. Please check the uploaded files and format.")
     st.exception(e)
-# ================= MINI HUMAN POPUP =================
-st.components.v1.html("""
-<style>
-.assistant-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99999;
-}
+# ================= MINI HUMAN ASSISTANT =================
+import streamlit.components.v1 as components
 
-.human-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: none;
-    background: white;
-    font-size: 38px;
-    cursor: pointer;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
-}
+components.html(
+    """
+    <style>
+    .mini-human {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999999;
+    }
 
-.popup-message {
-    display: none;
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    background: white;
-    padding: 12px 18px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    font-weight: bold;
-    z-index: 99999;
-}
-</style>
+    .human-btn {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        border: none;
+        font-size: 38px;
+        cursor: pointer;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
 
-<div class="assistant-btn">
-    <div id="popup" class="popup-message">
-        📂 Upload your file
+    .popup {
+        display: none;
+        position: fixed;
+        bottom: 105px;
+        right: 20px;
+        background: white;
+        color: black;
+        padding: 12px 16px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        font-weight: bold;
+        z-index: 999999;
+    }
+    </style>
+
+    <div class="mini-human">
+        <div id="popupBox" class="popup">
+            📂 Upload your file
+        </div>
+
+        <button class="human-btn" onclick="showPopup()">
+            👨
+        </button>
     </div>
 
-    <button class="human-icon" onclick="togglePopup()">
-        👨
-    </button>
-</div>
+    <script>
+    function showPopup() {
+        let popup = document.getElementById("popupBox");
 
-<script>
-function togglePopup() {
-    var popup = document.getElementById("popup");
-
-    if (popup.style.display === "block") {
-        popup.style.display = "none";
-    } else {
-        popup.style.display = "block";
+        if (popup.style.display === "block") {
+            popup.style.display = "none";
+        } else {
+            popup.style.display = "block";
+        }
     }
-}
-</script>
-""", height=0)
+    </script>
+    """,
+    height=120,
+)
