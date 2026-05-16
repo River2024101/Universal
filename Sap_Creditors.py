@@ -977,58 +977,59 @@ try:
 except Exception as e:
     st.error("Processing failed. Please check the uploaded files and format.")
     st.exception(e)
-# ================= MINI HUMAN ASSISTANT =================
-st.markdown("""
-<style>
-.mini-human-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999999;
+
+import streamlit.components.v1 as components
+
+components.html("""
+<script>
+const parentDoc = window.parent.document;
+
+// Prevent duplicate button
+if (!parentDoc.getElementById("mini-human-btn")) {
+
+    // Create button
+    const btn = parentDoc.createElement("button");
+    btn.id = "mini-human-btn";
+    btn.innerHTML = "👨";
+
+    btn.style.position = "fixed";
+    btn.style.bottom = "20px";
+    btn.style.right = "20px";
+    btn.style.width = "70px";
+    btn.style.height = "70px";
+    btn.style.borderRadius = "50%";
+    btn.style.border = "none";
+    btn.style.fontSize = "36px";
+    btn.style.cursor = "pointer";
+    btn.style.background = "white";
+    btn.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
+    btn.style.zIndex = "999999";
+
+    // Create popup
+    const popup = parentDoc.createElement("div");
+    popup.id = "mini-human-popup";
+    popup.innerHTML = "📂 Upload your file";
+
+    popup.style.display = "none";
+    popup.style.position = "fixed";
+    popup.style.bottom = "100px";
+    popup.style.right = "20px";
+    popup.style.background = "white";
+    popup.style.padding = "12px 18px";
+    popup.style.borderRadius = "12px";
+    popup.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
+    popup.style.fontWeight = "bold";
+    popup.style.zIndex = "999999";
+
+    // Click event
+    btn.onclick = function() {
+        popup.style.display =
+            popup.style.display === "none" ? "block" : "none";
+    };
+
+    // Add to page
+    parentDoc.body.appendChild(btn);
+    parentDoc.body.appendChild(popup);
 }
-
-.mini-human-btn button {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: none;
-    font-size: 36px;
-    cursor: pointer;
-    background: white;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-}
-
-.popup-message {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    background: white;
-    padding: 12px 18px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
-    z-index: 999999;
-    font-weight: bold;
-}
-</style>
-""", unsafe_allow_html=True)
-
-# Session state
-if "show_human_popup" not in st.session_state:
-    st.session_state.show_human_popup = False
-
-# Floating button container
-st.markdown('<div class="mini-human-btn">', unsafe_allow_html=True)
-
-if st.button("👨", key="human_assistant"):
-    st.session_state.show_human_popup = not st.session_state.show_human_popup
-
-st.markdown('</div>', unsafe_allow_html=True)
-
-# Popup message
-if st.session_state.show_human_popup:
-    st.markdown("""
-    <div class="popup-message">
-        📂 Upload your file
-    </div>
-    """, unsafe_allow_html=True)
+</script>
+""", height=0)
