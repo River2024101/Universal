@@ -977,76 +977,58 @@ try:
 except Exception as e:
     st.error("Processing failed. Please check the uploaded files and format.")
     st.exception(e)
-import streamlit.components.v1 as components
-
-components.html(
-    """
-<!DOCTYPE html>
-<html>
-<head>
+# ================= MINI HUMAN ASSISTANT =================
+st.markdown("""
 <style>
-body{
-    margin:0;
-    overflow:hidden;
-    background:transparent;
+.mini-human-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
 }
 
-#humanBtn{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    border:none;
-    font-size:36px;
-    cursor:pointer;
-    background:#ffffff;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-    z-index:999999;
+.mini-human-btn button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
 
-#popup{
-    display:none;
-    position:fixed;
-    bottom:100px;
-    right:20px;
-    background:white;
-    padding:12px 18px;
-    border-radius:12px;
-    border:1px solid #ddd;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    font-weight:bold;
-    z-index:999999;
+.popup-message {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+    z-index: 999999;
+    font-weight: bold;
 }
 </style>
-</head>
+""", unsafe_allow_html=True)
 
-<body>
+# Session state
+if "show_human_popup" not in st.session_state:
+    st.session_state.show_human_popup = False
 
-<div id="popup">
-    📂 Upload your file
-</div>
+# Floating button container
+st.markdown('<div class="mini-human-btn">', unsafe_allow_html=True)
 
-<button id="humanBtn" onclick="togglePopup()">
-👨
-</button>
+if st.button("👨", key="human_assistant"):
+    st.session_state.show_human_popup = not st.session_state.show_human_popup
 
-<script>
-function togglePopup() {
-    var popup = document.getElementById("popup");
+st.markdown('</div>', unsafe_allow_html=True)
 
-    if (popup.style.display === "none" || popup.style.display === "") {
-        popup.style.display = "block";
-    } else {
-        popup.style.display = "none";
-    }
-}
-</script>
-
-</body>
-</html>
-""",
-    height=150,
-    scrolling=False
-)
+# Popup message
+if st.session_state.show_human_popup:
+    st.markdown("""
+    <div class="popup-message">
+        📂 Upload your file
+    </div>
+    """, unsafe_allow_html=True)
