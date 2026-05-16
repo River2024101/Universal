@@ -980,64 +980,49 @@ except Exception as e:
 # ================= MINI HUMAN ASSISTANT =================
 import streamlit as st
 
-# Session state for popup
-if "show_message" not in st.session_state:
-    st.session_state.show_message = False
+# Session state
+if "show_popup" not in st.session_state:
+    st.session_state.show_popup = False
 
-# CSS for mini human button
+# CSS
 st.markdown("""
 <style>
-.mini-human-container {
+div[data-testid="stButton"] > button[kind="secondary"] {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 9999;
-}
-
-.mini-human button {
-    background-color: #ffffff;
-    border: 2px solid #ddd;
-    border-radius: 50%;
     width: 70px;
     height: 70px;
+    border-radius: 50%;
     font-size: 35px;
-    cursor: pointer;
+    z-index: 9999;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
 
-.popup-msg {
+/* Popup message */
+.popup-box {
     position: fixed;
     bottom: 100px;
     right: 20px;
-    background: #ffffff;
-    color: black;
-    padding: 12px 18px;
-    border-radius: 12px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
     border: 1px solid #ddd;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
     z-index: 9999;
-    font-size: 16px;
     font-weight: bold;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Human button
-st.markdown('<div class="mini-human-container">', unsafe_allow_html=True)
+# Mini human button
+if st.button("👨", key="mini_human"):
+    st.session_state.show_popup = not st.session_state.show_popup
 
-if st.button("👨", key="human_btn"):
-    st.session_state.show_message = not st.session_state.show_message
-
-st.markdown('</div>', unsafe_allow_html=True)
-
-# Popup message
-if st.session_state.show_message:
-    st.markdown(
-        """
-        <div class="popup-msg">
-            📂 Upload your file
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
+# Popup text
+if st.session_state.show_popup:
+    st.markdown("""
+    <div class="popup-box">
+        📂 Upload your file
+    </div>
+    """, unsafe_allow_html=True)
