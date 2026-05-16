@@ -977,52 +977,61 @@ try:
 except Exception as e:
     st.error("Processing failed. Please check the uploaded files and format.")
     st.exception(e)
-# ================= MINI HUMAN ASSISTANT =================
-import streamlit as st
-
-# Session state
-if "show_popup" not in st.session_state:
-    st.session_state.show_popup = False
-
-# CSS
-st.markdown("""
+# ================= MINI HUMAN POPUP =================
+st.components.v1.html("""
 <style>
-div[data-testid="stButton"] > button[kind="secondary"] {
+.assistant-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 99999;
+}
+
+.human-icon {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    font-size: 35px;
-    z-index: 9999;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    border: none;
+    background: white;
+    font-size: 38px;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
 }
 
-/* Popup message */
-.popup-box {
+.popup-message {
+    display: none;
     position: fixed;
     bottom: 100px;
     right: 20px;
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
+    background: white;
+    padding: 12px 18px;
+    border-radius: 12px;
     border: 1px solid #ddd;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
-    z-index: 9999;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
     font-weight: bold;
+    z-index: 99999;
 }
 </style>
-""", unsafe_allow_html=True)
 
-# Mini human button
-if st.button("👨", key="mini_human"):
-    st.session_state.show_popup = not st.session_state.show_popup
-
-# Popup text
-if st.session_state.show_popup:
-    st.markdown("""
-    <div class="popup-box">
+<div class="assistant-btn">
+    <div id="popup" class="popup-message">
         📂 Upload your file
     </div>
-    """, unsafe_allow_html=True)
+
+    <button class="human-icon" onclick="togglePopup()">
+        👨
+    </button>
+</div>
+
+<script>
+function togglePopup() {
+    var popup = document.getElementById("popup");
+
+    if (popup.style.display === "block") {
+        popup.style.display = "none";
+    } else {
+        popup.style.display = "block";
+    }
+}
+</script>
+""", height=0)
