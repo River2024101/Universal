@@ -977,66 +977,76 @@ try:
 except Exception as e:
     st.error("Processing failed. Please check the uploaded files and format.")
     st.exception(e)
-# ================= MINI HUMAN ASSISTANT =================
 import streamlit.components.v1 as components
 
 components.html(
     """
-    <style>
-    .mini-human {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 999999;
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    background:transparent;
+}
+
+#humanBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:none;
+    font-size:36px;
+    cursor:pointer;
+    background:#ffffff;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    z-index:999999;
+}
+
+#popup{
+    display:none;
+    position:fixed;
+    bottom:100px;
+    right:20px;
+    background:white;
+    padding:12px 18px;
+    border-radius:12px;
+    border:1px solid #ddd;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    font-weight:bold;
+    z-index:999999;
+}
+</style>
+</head>
+
+<body>
+
+<div id="popup">
+    📂 Upload your file
+</div>
+
+<button id="humanBtn" onclick="togglePopup()">
+👨
+</button>
+
+<script>
+function togglePopup() {
+    var popup = document.getElementById("popup");
+
+    if (popup.style.display === "none" || popup.style.display === "") {
+        popup.style.display = "block";
+    } else {
+        popup.style.display = "none";
     }
+}
+</script>
 
-    .human-btn {
-        width: 75px;
-        height: 75px;
-        border-radius: 50%;
-        border: none;
-        font-size: 38px;
-        cursor: pointer;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-    }
-
-    .popup {
-        display: none;
-        position: fixed;
-        bottom: 105px;
-        right: 20px;
-        background: white;
-        color: black;
-        padding: 12px 16px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        font-weight: bold;
-        z-index: 999999;
-    }
-    </style>
-
-    <div class="mini-human">
-        <div id="popupBox" class="popup">
-            📂 Upload your file
-        </div>
-
-        <button class="human-btn" onclick="showPopup()">
-            👨
-        </button>
-    </div>
-
-    <script>
-    function showPopup() {
-        let popup = document.getElementById("popupBox");
-
-        if (popup.style.display === "block") {
-            popup.style.display = "none";
-        } else {
-            popup.style.display = "block";
-        }
-    }
-    </script>
-    """,
-    height=120,
+</body>
+</html>
+""",
+    height=150,
+    scrolling=False
 )
